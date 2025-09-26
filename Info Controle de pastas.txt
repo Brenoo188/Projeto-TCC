@@ -1,0 +1,31 @@
+-----------------------------------------------------------------------------------------------------------
+
+📂 "src" = "código-fonte"
+👉 Pasta principal onde fica todo o código do projeto.
+
+-----------------------------------------------------------------------------------------------------------
+
+📂 "assets" = "recursos"
+👉 Arquivos estáticos como imagens, fontes e ícones.
+
+-----------------------------------------------------------------------------------------------------------
+
+📂 "layouts" = "modelos / estruturas de página"
+👉 Estruturas base como cabeçalho, rodapé, barra lateral.
+
+-----------------------------------------------------------------------------------------------------------
+
+📂 "scripts" = "códigos / lógicas"
+👉 Arquivos JavaScript/TypeScript que controlam a interação e funcionalidades.
+
+-----------------------------------------------------------------------------------------------------------
+
+📂 "styles" = "estilos"
+👉 Arquivos CSS/SCSS que definem cores, tamanhos, fontes, responsividade.
+
+-----------------------------------------------------------------------------------------------------------
+
+📂 "vendor" = "fornecedores / bibliotecas externas"
+👉 Código de terceiros, como frameworks, plugins e dependências externas.
+
+-----------------------------------------------------------------------------------------------------------

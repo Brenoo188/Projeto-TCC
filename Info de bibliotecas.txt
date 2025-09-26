@@ -1,0 +1,101 @@
+=========================================
+Bibliotecas Essenciais para Projetos
+=========================================
+
+--- Frameworks de estilo (escolher apenas 1 para evitar conflito) ---
+
+1) Tailwind CSS
+Link: https://cdn.tailwindcss.com
+Resumo: Classes utilitárias para criar layouts rápidos e totalmente personalizáveis.
+
+2) Bulma
+Link: https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+Resumo: Leve e responsivo, baseado em Flexbox, apenas CSS (sem JavaScript).
+
+3) Bootstrap
+Link CSS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+Link JS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js
+Resumo: Framework popular com grid, responsividade e componentes prontos (botões, navbar, modais).
+
+-----------------------------------------
+
+--- Animações ---
+
+4) Animate.css
+Link: https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css
+Resumo: Adiciona efeitos prontos como fade, bounce, zoom e outros.
+
+5) AOS (Animate On Scroll)
+Link CSS: https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css
+Link JS: https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js
+Resumo: Animações que aparecem quando o usuário rola a página.
+
+-----------------------------------------
+
+--- Ícones ---
+
+6) Font Awesome
+Link: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
+Resumo: Maior biblioteca de ícones, incluindo redes sociais, menus e botões.
+
+7) Boxicons
+Link: https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css
+Resumo: Ícones modernos, leves e fáceis de usar.
+
+8) Material Icons
+Link: https://fonts.googleapis.com/icon?family=Material+Icons
+Resumo: Ícones oficiais do Google, seguindo o padrão Material Design.
+
+-----------------------------------------
+
+--- Funcionalidades em JavaScript ---
+
+9) Axios
+Link: https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+Resumo: Facilita requisições HTTP, substituindo o fetch.
+
+10) Day.js
+Link: https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js
+Resumo: Manipulação de datas e horários, formatações e cálculos.
+
+11) Lodash
+Link: https://cdn.jsdelivr.net/npm/lodash/lodash.min.js
+Resumo: Funções utilitárias para arrays, objetos e strings (ordenar, filtrar, clonar).
+
+-----------------------------------------
+
+--- Gráficos ---
+
+12) Chart.js
+Link: https://cdn.jsdelivr.net/npm/chart.js
+Resumo: Criação de gráficos simples e bonitos (pizza, barra, linha).
+
+13) D3.js
+Link: https://d3js.org/d3.v7.min.js
+Resumo: Gráficos e visualizações avançadas e personalizáveis.
+
+-----------------------------------------
+
+--- Alertas Bonitos ---
+
+14) SweetAlert2
+Link: https://cdn.jsdelivr.net/npm/sweetalert2@11
+Resumo: Substitui o alert() padrão com pop-ups modernos e interativos.
+
+-----------------------------------------
+
+--- Efeitos Extras ---
+
+15) Typed.js
+Link: https://cdn.jsdelivr.net/npm/typed.js@2.0.12
+Resumo: Efeito de texto digitando automaticamente.
+
+16) Particles.js
+Link: https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js
+Resumo: Fundo animado com partículas interativas.
+
+17) GSAP (GreenSock)
+Link: https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
+Resumo: Animações avançadas, suaves e altamente personalizáveis.
+
+=========================================
