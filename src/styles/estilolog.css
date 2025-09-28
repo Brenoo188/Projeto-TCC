@@ -1,0 +1,37 @@
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+      
+}
+
+.container-principal {
+    display: flex;
+    height: 100vh; 
+    width: 100vw; 
+}
+
+.ld-esq, .ld-dir {
+    width: 50%; /* Cada lado ocupa exatamente 50% da largura do container */
+    height: 100%; /* Garante que ocupem a altura total */
+    display: flex; /* Ativa flexbox dentro de cada lado para centralizar o conteúdo */
+    flex-direction: column; /* Alinha os itens um abaixo do outro */
+    justify-content: center; /* Centraliza verticalmente o conteúdo (h1 e p, ou form) */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+
+}
+
+ .ld-esq {
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco */
+    /* Você pode ajustar o alinhamento do texto aqui se quiser */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    padding-left: 15%; /* Adiciona um espaço para o texto não ficar colado na borda */
+ }
+
+ /* Estilo específico para o Lado Direito (que será o lado branco) */
+.ld-dir {
+    background-color: #ffffff; /* Fundo branco */
+}
+

@@ -1,0 +1,201 @@
+===========================
+📑 ÍNDICE DO ARQUIVO
+===========================
+
+1. 🎨 CORES E FUNDO
+2. ✍️ TEXTO
+3. 📦 CAIXA E LAYOUT
+4. 🔀 FLEXBOX
+5. 🧩 GRID
+6. 📍 POSIÇÃO E TRANSFORMAÇÃO
+7. 🎞️ ANIMAÇÕES
+8. 📋 LISTAS
+9. 🔧 OUTROS
+10. 📏 DIMENSIONAMENTO E ESPAÇAMENTO
+11. 🖥️ EXEMPLO TELA DIVIDIDA MEIO A MEIO
+
+
+====================================================
+1. 🎨 CORES E FUNDO
+====================================================
+background-color: #164194;  (cor de fundo)  
+color: #ffffff;  (cor do texto)  
+opacity: 0.5;  (transparência)  
+background-image: url('imagem.jpg');  (imagem de fundo)  
+background-repeat: no-repeat;  (não repetir imagem)  
+background-size: cover;  (imagem cobre todo espaço)  
+background-position: center;  (imagem centralizada)  
+background-attachment: fixed;  (imagem fixa na tela)  
+background-clip: border-box;  (área do fundo inclui borda)  
+background-origin: padding-box;  (origem do fundo)  
+background-blend-mode: multiply;  (mistura imagem + fundo)  
+
+
+====================================================
+2. ✍️ TEXTO
+====================================================
+font-size: 16px;  (tamanho da fonte)  
+font-family: Arial, sans-serif;  (tipo da fonte)  
+font-weight: bold;  (negrito)  
+font-style: italic;  (itálico)  
+text-align: center;  (centralizar texto)  
+text-decoration: underline;  (sublinhado)  
+text-transform: uppercase;  (maiúsculo)  
+letter-spacing: 2px;  (espaço entre letras)  
+line-height: 1.5;  (altura da linha)  
+word-spacing: 5px;  (espaço entre palavras)  
+white-space: nowrap;  (texto em uma linha só)  
+text-overflow: ellipsis;  (texto cortado com ...)  
+direction: rtl;  (texto da direita para esquerda)  
+writing-mode: vertical-rl;  (texto na vertical)  
+unicode-bidi: embed;  (controle de direção do texto)  
+
+
+====================================================
+3. 📦 CAIXA E LAYOUT
+====================================================
+width: 200px;  (largura)  
+height: 100px;  (altura)  
+max-width: 100%;  (largura máxima)  
+min-width: 50px;  (largura mínima)  
+max-height: 500px;  (altura máxima)  
+min-height: 100px;  (altura mínima)  
+padding: 10px;  (espaço interno)  
+margin: 10px;  (espaço externo)  
+border: 1px solid black;  (borda simples)  
+border-radius: 10px;  (arredondar bordas)  
+box-shadow: 2px 2px 5px rgba(0,0,0,0.5);  (sombra)  
+display: block;  (bloco normal)  
+display: flex;  (flexbox)  
+display: grid;  (grid)  
+overflow: hidden;  (esconde conteúdo extra)  
+z-index: 10;  (ordem de camadas)  
+position: relative;  (posição relativa)  
+position: absolute;  (posição absoluta)  
+position: fixed;  (posição fixa)  
+box-sizing: border-box;  (tamanho inclui borda e padding)  
+
+
+====================================================
+4. 🔀 FLEXBOX
+====================================================
+display: flex;  (ativa flexbox)  
+flex-direction: row;  (itens em linha)  
+flex-direction: column;  (itens em coluna)  
+justify-content: center;  (centralizar horizontal)  
+justify-content: space-between;  (espaço entre itens)  
+align-items: center;  (centralizar vertical)  
+align-items: stretch;  (esticar itens)  
+flex-wrap: wrap;  (quebra de linha)  
+gap: 10px;  (espaço entre itens)  
+
+
+====================================================
+5. 🧩 GRID
+====================================================
+display: grid;  (ativa grid)  
+grid-template-columns: repeat(3, 1fr);  (3 colunas iguais)  
+grid-template-rows: 100px 200px;  (linhas com altura fixa)  
+grid-gap: 10px;  (espaço entre linhas/colunas)  
+grid-template-areas: "header header" "menu main" "footer footer";  (áreas nomeadas)  
+
+
+====================================================
+6. 📍 POSIÇÃO E TRANSFORMAÇÃO
+====================================================
+position: relative;  (posição relativa)  
+top: 10px;  (distância do topo)  
+left: 10px;  (distância da esquerda)  
+transform: rotate(45deg);  (rotacionar)  
+transform: scale(1.5);  (aumentar tamanho)  
+transform: translateX(50px);  (mover horizontal)  
+transform: skewX(20deg);  (inclinar)  
+
+
+====================================================
+7. 🎞️ ANIMAÇÕES
+====================================================
+transition: all 0.3s ease;  (transição suave)  
+animation: nome 2s infinite;  (animação repetida)  
+@keyframes nome { from {opacity: 0;} to {opacity: 1;} }  
+
+
+====================================================
+8. 📋 LISTAS
+====================================================
+list-style-type: none;  (sem marcador)  
+list-style-type: disc;  (bolinha)  
+list-style-type: square;  (quadrado)  
+list-style-image: url('icone.png');  (imagem como marcador)  
+
+
+====================================================
+9. 🔧 OUTROS
+====================================================
+cursor: pointer;  (mãozinha ao passar)  
+visibility: hidden;  (esconde mas ocupa espaço)  
+display: none;  (remove da tela)  
+clip-path: circle(50%);  (cortar em círculo)  
+filter: blur(5px);  (desfoque)  
+user-select: none;  (impede selecionar texto)  
+resize: both;  (redimensionar manualmente)  
+
+
+====================================================
+10. 📏 DIMENSIONAMENTO E ESPAÇAMENTO
+====================================================
+width → define a largura do elemento.  
+height → define a altura do elemento.  
+max-width → largura máxima.  
+min-width → largura mínima.  
+max-height → altura máxima.  
+min-height → altura mínima.  
+
+padding → espaço **interno** (dentro da borda).  
+margin → espaço **externo** (fora da borda).  
+
+box-sizing: border-box → largura já conta borda e padding.  
+gap → espaço entre itens em flex/grid.  
+
+Unidades:  
+px (fixo), % (proporcional), em/rem (fonte), vh/vw (tela), auto (automático).  
+
+
+====================================================
+11. 🖥️ EXEMPLO TELA DIVIDIDA MEIO A MEIO
+====================================================
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Dividida</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .lado1, .lado2 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .lado1 { background-color: lightblue; }
+    .lado2 { background-color: lightcoral; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lado1">Lado 1</div>
+    <div class="lado2">Lado 2</div>
+  </div>
+</body>
+</html>
