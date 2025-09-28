@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+}
+
+nav.menu-lateral {
+    width: 300px;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 40px 0 40px 1%;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul { 
+    height: 100%;
+    list-style-type: none;
+}
+
+ul > li.item-menu {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+ul > li.item-menu a .txt-link{ 
+    margin-left: 40px;
+
+}
