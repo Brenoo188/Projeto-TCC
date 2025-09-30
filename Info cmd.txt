@@ -1,0 +1,57 @@
+=== ANOTAÇÃO CMD - COMANDOS ÚTEIS ===
+
+1. NAVEGAÇÃO ENTRE PASTAS
+--------------------------
+cd nome-da-pasta        # entra na pasta
+cd ..                   # volta uma pasta
+cd \                    # vai para a raiz do disco (ex: C:\)
+dir                     # lista arquivos e pastas da pasta atual
+
+
+
+2. CRIAR E APAGAR PASTAS
+--------------------------
+mkdir nome-da-pasta     # cria uma nova pasta
+rmdir nome-da-pasta     # remove pasta vazia
+rmdir /s nome-da-pasta  # remove pasta com todos os arquivos dentro (confirmação)
+rmdir /s /q nome-pasta  # remove pasta com todos os arquivos sem pedir confirmação
+
+
+
+3. CRIAR E APAGAR ARQUIVOS
+--------------------------
+echo texto > arquivo.txt   # cria arquivo .txt com um conteúdo
+type nul > arquivo.txt     # cria um arquivo vazio
+del arquivo.txt            # apaga um arquivo
+del *.txt                  # apaga todos os arquivos .txt da pasta
+
+
+
+4. ATALHOS DE TECLADO NO CMD
+------------------------------
+↑ (seta pra cima)        # repete último comando
+↓ (seta pra baixo)       # navega nos comandos anteriores
+Tab                      # completa nome de arquivos/pastas automaticamente
+Ctrl + C                 # cancela um comando em execução
+Ctrl + A                 # seleciona todo o texto do CMD
+Ctrl + M                 # ativa modo de seleção (mover com setas e marcar texto)
+F7                       # mostra histórico de comandos em uma janelinha
+
+
+
+5. INFORMAÇÕES DO SISTEMA
+---------------------------
+cls                      # limpa a tela
+exit                     # fecha o CMD
+hostname                 # mostra o nome do computador
+ipconfig                 # mostra informações de rede
+ipconfig /all            # mostra detalhes completos da rede
+ping www.google.com      # testa conexão com um site
+systeminfo               # mostra informações completas do sistema
+
+
+
+6. ATALHOS DE EXECUÇÃO RÁPIDA
+-------------------------------
+win + r  +  cmd          # abre o CMD pelo "Executar"
+win + r  +  powershell   # abre o PowerShell
