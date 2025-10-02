@@ -38,7 +38,7 @@ head {
     left: 10px;
     width: 50px;    
     height: 50px; 
-    mask-image: url('https://img.icons8.com/ios-filled/50/000000/left.png'); ;
+    mask-image: url('../layouts/botao_voltar.png'); ;
     
  }
 
@@ -53,7 +53,7 @@ head {
     
 
     width: 370px;
-    height: 575px;
+    height: 620px;
     background-color: rgb(192, 192, 192);
     display: flex;
     border:#000000 2px solid;

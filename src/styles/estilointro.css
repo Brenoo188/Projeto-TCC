@@ -1,10 +1,10 @@
 body {
-    /* O mais importante para o reset: */
+   
     margin: 0; 
     padding: 0;
     
-    /* Configurações visuais que você já tinha: */
-     background-color: #164194; /* Vermelho SESI */
+   
+     background-color: #535353; 
       color: white; 
     font-family: Arial, sans-serif;
    
@@ -24,18 +24,18 @@ details {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: white; /* Cor de fundo do botão */
+    background-color: white; 
     border-radius: 5px;
     padding: 10px;
-    z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+    z-index: 1000;
     border: rgb(0, 0, 0) 2px double;
 }
 
 details summary {
     cursor: pointer;
     font-size: 24px;
-    color: rgb(0, 0, 0); /* Cor do ícone do menu */
-    list-style: none; /* Remove o marcador padrão */
+    color: rgb(0, 0, 0); 
+    list-style: none; 
 }
 
 .menu-botoes {
@@ -56,11 +56,10 @@ details summary {
     position: absolute;
     bottom: 24px;
     left: 24px;
-    background: rgba(255,255,255,0.92);
     border-radius: 16px;
     padding: 10px 32px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    z-index: 100;
+    z-index: 100; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,32 +70,33 @@ details summary {
     display: block;
 }
 
-/* Caixa principal do texto de descrição */
+
 .descricao-site {
     text-align: center;
-    margin: 40px auto 0 auto;
+    margin: 170px auto 17px auto;
     max-width: 700px;
-    color: #164194;
-    background: rgba(255,255,255,0.92);
-    border-radius: 16px;
+    color: #070707;
+    background: rgba(255, 251, 251, 0.92);
+    border-radius: 30px;
     padding: 32px 18px 24px 18px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+
 }
 
-/* Título da descrição */
+
 .desc-titulo {
     font-size: 1.4em;
     font-weight: 600;
     margin-bottom: 12px;
 }
 
-/* Texto explicativo */
+
 .desc-texto {
     font-size: 1.08em;
     margin-bottom: 18px;
 }
 
-/* Lista de funcionalidades */
+
 .desc-lista {
     list-style: none;
     padding: 0;
@@ -109,11 +109,11 @@ details summary {
     font-size: 1.05em;
     position: relative;
     padding-left: 18px;
-    color: #164194;
+    color: #000000;
 }
 .desc-lista li:before {
     content: "• ";
-    color: #164194;
+    color: #000000;
     position: absolute;
     left: 0;
 }
