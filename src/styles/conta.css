@@ -1,0 +1,73 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+}
+
+nav.menu-lateral {
+    width: 60px;
+    height: 100%;
+    background-color:#5f5f5f;
+    padding-top: 20px;
+    position: fixed;
+    box-shadow: 4px 0 0 rgb(54, 54, 54);
+    overflow: hidden;
+    transition: .3s;
+}
+
+/* Classe CSS para expandir a largura, ativada pelo JS */
+nav.menu-lateral.expandir_btn {
+    width: 200px;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+}
+
+.btn-expandir > i {
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li.menu-botoes {
+    transition: .4s;
+}
+
+ul > li.menu-botoes a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+
+    /* CORREÇÃO: Garante que o link ocupe toda a largura do item */
+    width: 100%;
+
+    margin-bottom: 5px;
+}
+
+ul > li.menu-botoes a .txt-link{
+    margin-left: 20px;
+}
+
+ul li.menu-botoes a .icon {
+    font-size: 24px;
+    color: white;
+    width: 30px;
+    text-align: center;
+}

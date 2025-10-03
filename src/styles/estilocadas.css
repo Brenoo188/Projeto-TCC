@@ -1,4 +1,4 @@
-head {
+﻿head {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,7 @@ head {
 
 .lado-esq, .lado-dir {
     width: 50%;
-    height: 100%; 
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,26 +31,21 @@ head {
     background-color: #ffffff;
 }
 
-
 .btn-voltar {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 50px;    
-    height: 50px; 
+    width: 50px;
+    height: 50px;
     mask-image: url('../layouts/botao_voltar.png'); ;
-    
- }
 
- 
- 
+ }
 
   .pergunta-conta {
     text-align: center;
   }
 
   .caixa_int {
-    
 
     width: 370px;
     height: 620px;

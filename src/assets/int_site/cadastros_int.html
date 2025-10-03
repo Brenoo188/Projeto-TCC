@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../styles/bd_css.css">
-    <title>Banco de dados</title>
+    <link rel="stylesheet" href="../../styles/cadastros_int.css">
+    <title>Gerenciamento de cadastro</title>
 </head>
 <body>
     <nav class="menu-lateral">
@@ -28,12 +28,12 @@
                 </a>
             </li>
             <li class="menu-botoes">
-                <a href="cadastros_int.html">
+                <a href="cadastros_int.html" style="background-color: rgb(77, 77, 77);">
                     <span class="icon"><i class="bi bi-people"></i></span>
                     <span class="txt-link">Cadastros</span>
                 </a>
             </li>
-            <li class="menu-botoes" style="background-color: rgb(77, 77, 77);">
+            <li class="menu-botoes">
                 <a href="bd.html">
                     <span class="icon"><i class="bi bi-database"></i></span>
                     <span class="txt-link">BD</span>
@@ -54,7 +54,24 @@
         </ul>
     </nav>
 
-    <script src="../../scripts/bd.js"></script>
+    <script src="../../scripts/cadastro_int.js"></script>
 
+    <main>
+        <section class="container-caixas" aria-label="Área de cadastros">
+            <article class="caixa-P">
+                <button type="button" aria-label="Gerenciar professores" onclick="location.href='professores.html'">
+                    <h2>Professores</h2>
+                    <p>Gerencie os cadastros dos professores aqui.</p>
+                </button>
+            </article>
+
+            <article class="caixa-M">
+                <button type="button" aria-label="Gerenciar matérias" onclick="location.href='materias.html'">
+                    <h2>Matérias</h2>
+                    <p>Gerencie os cadastros de matérias aqui.</p>
+                </button>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

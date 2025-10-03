@@ -1,12 +1,9 @@
-=== ANOTAÇÃO GIT - COMANDOS BÁSICOS ===
+﻿=== ANOTAÇÃO GIT - COMANDOS BÁSICOS ===
 
 1. CONFIGURAR NOME E EMAIL
 --------------------------
 git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@exemplo.com"
-
-
-
 
 2. CLONAR UM PROJETO DO GITHUB
 -------------------------------
@@ -15,9 +12,6 @@ cd caminho/da/pasta
 
 # Clonar o repositório (copie o link HTTPS ou SSH do repositório)
 git clone https://github.com/usuario/repositorio.git
-
-
-
 
 3. SUBIR UM PROJETO PARA O GITHUB
 -----------------------------------
