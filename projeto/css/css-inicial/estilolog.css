@@ -21,10 +21,11 @@
 }
 
 .ld-esq {
-    background-color: #000000;
     color: #ffffff;
     align-items: flex-start;
     padding-left: 15%;
+    background-image: url(../../img/imgfundo.png);
+    
 }
 
 .ld-dir {
@@ -43,14 +44,4 @@
 
   .pergunta-conta {
     text-align: center;
-  }
-
-  .caixa_int {
-    display: flex;
-    width: 370px;
-    height: 350px;
-    background-color:rgb(192, 192, 192);
-    border: #000000 2px solid;
-    box-shadow: 0 6px 14px rgba(7, 5, 5, 0.562);
-    border-radius: 10px;
   }
