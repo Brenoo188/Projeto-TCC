@@ -33,7 +33,7 @@
                 </div>
                 <br>
                 <button type="button" class="btn btn-outline-dark" style="width: 350px; margin: 10px ;"
-                    onclick="window.location.href='../assets/int_site/home.html'">Entrar</button>
+                onclick="window.location.href=''">Entrar</button>
 
                 <br>
                 <br>
