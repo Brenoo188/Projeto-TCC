@@ -14,7 +14,7 @@
 
     <div class="container-login">
         <div class="ld-esq">
-            <a href="index.html"><button class="btn-voltar"></button></a>
+            
 
             <h1 style="color: rgb(255, 255, 255);">Bem-vindo de volta!</h1>
             <p style="color: white; margin-left: 50px;">Por favor, faça login para continuar.</p>

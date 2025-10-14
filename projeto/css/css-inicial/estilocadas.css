@@ -1,17 +1,17 @@
-﻿head {
+﻿body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
+    }
 
-.container-cadastro {
+.container-login {
     display: flex;
     height: 100vh;
     width: 100vw;
 }
 
-.lado-esq, .lado-dir {
+.ld-esq, .ld-dir {
     width: 50%;
     height: 100%;
     display: flex;
@@ -20,38 +20,28 @@
     align-items: center;
 }
 
-.lado-esq {
-    background-color: #474747;
+.ld-esq {
     color: #ffffff;
     align-items: flex-start;
     padding-left: 15%;
+    background-image: url(../../img/imgfundo.png);
+    
 }
 
-.lado-dir {
+.ld-dir {
     background-color: #ffffff;
 }
 
-.btn-voltar {
+ .btn-voltar {
     position: absolute;
     top: 10px;
     left: 10px;
     width: 50px;
     height: 50px;
-    mask-image: url('../layouts/botao_voltar.png'); ;
+    mask-image: url('https://img.icons8.com/ios-filled/50/000000/left.png'); ;
 
  }
 
   .pergunta-conta {
     text-align: center;
-  }
-
-  .caixa_int {
-
-    width: 370px;
-    height: 620px;
-    background-color: rgb(192, 192, 192);
-    display: flex;
-    border:#000000 2px solid;
-    box-shadow: 0 6px 14px rgba(7, 5, 5, 0.562);
-    border-radius: 10px;
   }

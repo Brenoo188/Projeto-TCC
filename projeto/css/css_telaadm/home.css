@@ -71,3 +71,46 @@ ul li.menu-botoes a .icon {
     width: 30px;
     text-align: center;
 }
+
+/* --- Mantém seu menu lateral --- */
+
+/* Conteúdo principal ao lado do menu */
+main.conteudo {
+    margin-left: 100px; /* mesmo tamanho do menu lateral */
+    padding: 30px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: margin-left .3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Quando o menu estiver expandido */
+nav.menu-lateral.expandir_btn ~ main.conteudo {
+    margin-left: 200px;
+}
+
+/* Título do calendário */
+.titulo-calendario {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Carrossel centralizado e com bordas suaves */
+.carousel {
+    width: 100%;
+    max-width: 2500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Ajuste das imagens do carrossel */
+.carousel img {
+    height: 500px;
+    object-fit: cover;
+}
+
