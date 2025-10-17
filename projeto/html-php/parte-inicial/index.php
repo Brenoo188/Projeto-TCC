@@ -61,37 +61,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+
     <div class="container-login">
+
         <div class="ld-esq">
 
             <h1 style="color: rgb(255, 255, 255);">Bem-vindo de volta!</h1>
+
             <p style="color: white; margin-left: 50px;">Por favor, faça login para continuar.</p>
+
         </div>
+
+
         <div class="ld-dir">
+
             <div class="caixa_int">
 
                 <form method="post" action="">
+
+
                     <div class="mb-3" style="width: 350px; margin: 10px;">
+
                         <label for="emailLO" class="form-label"><strong>E-mail</strong></label>
 
                         <input type="email" class="form-control" id="emailLO" name="email" placeholder="Insira seu email" required>
+
                     </div>
+
+
                     <div class="mb-3" style="width: 350px; margin: 10px;">
+
                         <label for="senhaLO" class="form-label"><strong>Senha</strong></label>
 
                         <input type="password" class="form-control" id="senhaLO" name="password" placeholder="Digite sua senha" required>
+                        
                     </div>
+
+
                     <br>
 
+
                     <button type="submit" class="btn btn-outline-dark" style="width: 350px; margin: 10px;">Entrar</button>
-                    <br><br><br>
+
+                    <br>
+                    <br>
+                    <br>
 
                     <div class="pergunta-conta">
+
                         Não tem uma conta?
+
                         <a href="../parte-inicial/cadastro.php">criar conta</a>
+
                     </div>
             </div>
             </form>
+
         </div>
     </div>
 </body>

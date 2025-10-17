@@ -22,6 +22,3 @@ btnExpandir.addEventListener('click', function() {
     // CORREÇÃO: Usa a classe correta 'expandir_btn'
     menuLateral.classList.toggle('expandir_btn');
 })
-
-
-

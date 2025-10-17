@@ -47,55 +47,104 @@ if (isset($_POST['submit'])) {
     <title>Cadastro</title>
 </head>
 <body>
+
     <div class="container-login">
         <div class="ld-esq">
             <h1 style="color: rgb(255, 255, 255);">Bem-vindo!!</h1>
             <p style="color: white; margin-left: 50px;">Por favor, cadastra-se para continuar</p>
         </div>
+
         <div class="ld-dir">
+
             <div class="caixa_int">
+
                 <h3 style="text-align: center;"><strong>Dados Pessoais</strong></h3><br>
+
                 <!-- Formulário de cadastro -->
+
                 <form method="post" action="">
+
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
+
                         <label for="nome_user" class="form-label"><strong>Nome</strong></label>
+
                         <input type="text" class="form-control" id="nome_user" name="nome_user" placeholder="Insira seu nome">
+
                     </div>
+
+
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
+
                         <label for="cpf_user" class="form-label"><strong>CPF</strong></label>
-                        <input type="text" class="form-control" id="cpf_user" name="cpf_user" placeholder="Insira seu CPF">   
+
+                        <input type="text" class="form-control" id="cpf_user" name="cpf_user" placeholder="Insira seu CPF">  
+
                     </div>
+
+
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
+
                         <label for="email_user" class="form-label"><strong>E-mail</strong></label>
+
                         <input type="email" class="form-control" id="email_user" name="email_user" placeholder="Insira seu E-mail">
+
                     </div>
+
+
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
+
                         <label for="telefone_user" class="form-label"><strong>Telefone</strong></label>
+
                         <input type="text" class="form-control" id="telefone_user" name="telefone_user" placeholder="Insira seu Telefone">
+
                     </div>
+
+                    
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
                         <label for="senha_user" class="form-label"><strong>Senha</strong></label>
+
                         <input type="password" class="form-control" id="senha_user" name="senha_user" placeholder="Insira sua senha">
                     </div>
+
+                    
                     <div class="mb-3" style="width: 350px; margin: 10px ;">
+
                         <label for="Csenha_user" class="form-label"><strong>Confirme sua Senha</strong></label>
+                        
                         <input type="password" class="form-control" id="Csenha_user" name="Csenha_user" placeholder="Confirme sua senha">
+
                     </div>
+
                     <br>
+
                     <h3 style="text-align: center;"><strong>Dado Profissional</strong></h3><br>
+
                     <select class="form-select" name="tipo_usuario" aria-label="Default select example">
+
                         <option selected value="">Selecione</option>
                         <option value="Professor">Professor</option>
                         <option value="Administrador">Administrador</option>
+
                     </select>
+
                     <br>
+
                     <button type="submit" name="submit" class="btn btn-outline-dark" style="width: 350px; margin: 10px;">Enviar</button>
-                    <br><br><br>
+
+                    <br>
+                    <br>
+                    <br>
+
                     <div class="pergunta-conta">
+
                         Já tem uma conta? <a href="index.php" style="margin: 10px;">Fazer login</a>
+
                     </div>
+
                 </form>
+
             </div>
+
         </div>
     </div>
 </body>

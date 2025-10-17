@@ -3,58 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../styles/home.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="../../css/css-prof/home.css">
 </head>
+
 <body>
+
     <nav class="menu-lateral">
+
         <div class="btn-expandir" id="btn-expan" style="padding-right: 0px;">
+
             <i class="bi bi-list"></i>
+
         </div>
 
         <ul>
-            <li class="menu-botoes ativo" style="background-color: rgb(77, 77, 77);">
+
+            <li class="menu-botoes ativo" style="background-color: rgb(0, 92, 169);">
+
                 <a href="home.html">
+
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="txt-link">home</span>
+
                 </a>
+
             </li>
+
+
+
             <li class="menu-botoes">
+
                 <a href="calendario.html">
+
                     <span class="icon"><i class="bi bi-calendar"></i></span>
                     <span class="txt-link">Calendário</span>
+
                 </a>
+
             </li>
+
+
+            
             <li class="menu-botoes">
-                <a href="cadastros_int.html">
-                    <span class="icon"><i class="bi bi-people"></i></span>
-                    <span class="txt-link">Cadastros</span>
-                </a>
-            </li>
-            <li class="menu-botoes">
-                <a href="bd.html">
-                    <span class="icon"><i class="bi bi-database"></i></span>
-                    <span class="txt-link">BD</span>
-                </a>
-            </li>
-            <li class="menu-botoes">
+
                 <a href="configuracao.html">
+
                     <span class="icon"><i class="bi bi-gear"></i></span>
                     <span class="txt-link">Configuração</span>
+
                 </a>
+
             </li>
+
+
+
             <li class="menu-botoes">
+
                 <a href="conta.html">
+
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
                     <span class="txt-link">Conta</span>
+
                 </a>
+
             </li>
+
         </ul>
+
     </nav>
 
-    <script src="../../scripts/home.js"></script>
+    <main class="conteudo">
+
+        <h2 class="titulo-calendario"></h2>
+
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+
+                    <img src="../../img/10.png" class="d-block w-100" alt="Calendário 1">
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="../../img/9.png" class="d-block w-100" alt="Calendário 2">
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="../../img/8.png" class="d-block w-100" alt="Calendário 3">
+
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../../Javascript/js-telaprof/home.js"></script>
 
 </body>
+
 </html>

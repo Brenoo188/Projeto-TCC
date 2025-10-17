@@ -45,3 +45,11 @@
   .pergunta-conta {
     text-align: center;
   }
+
+  /* Lado esquerdo */
+
+  @media screen and (max-width: 1020px) {
+    .ld-esq {
+        display: none;
+    }
+}
