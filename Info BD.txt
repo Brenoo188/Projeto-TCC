@@ -1,11 +1,15 @@
+
+CREATE DATABASE  bd_TCC;
+USE bd_TCC;
+
 -- Tabela de Cursos
-CREATE TABLE `Cursos`(
-    `id_cursos` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nome_cursos` VARCHAR(255) NOT NULL
+CREATE TABLE `Cursos` (
+    `id_curso` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nome_curso` VARCHAR(255) NOT NULL
 );
 
 -- Tabela de Turnos
-CREATE TABLE `Turnos`(
+CREATE TABLE `Turnos` (
     `id_turno` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(255) NOT NULL,
     `descricao` VARCHAR(255) NOT NULL,
@@ -13,7 +17,7 @@ CREATE TABLE `Turnos`(
 );
 
 -- Tabela de Usuários
-CREATE TABLE `Usuario`(
+CREATE TABLE `Usuario` (
     `id_usuario` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
@@ -21,21 +25,21 @@ CREATE TABLE `Usuario`(
     `tipo_usuario` ENUM('aluno', 'professor', 'admin') NOT NULL,
     `id_curso` BIGINT UNSIGNED,
     `id_turno` BIGINT UNSIGNED,
-    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_cursos`),
+    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_curso`),
     FOREIGN KEY (`id_turno`) REFERENCES `Turnos`(`id_turno`)
 );
 
 -- Tabela de Disciplinas
-CREATE TABLE `Disciplinas`(
+CREATE TABLE `Disciplinas` (
     `id_disciplina` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nome` VARCHAR(255) NOT NULL,
     `codigo` VARCHAR(255) NOT NULL,
     `id_curso` BIGINT UNSIGNED,
-    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_cursos`)
+    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_curso`)
 );
 
 -- Tabela Aluno_Disciplina (Relacionamento muitos-para-muitos)
-CREATE TABLE `Aluno_Disciplina`(
+CREATE TABLE `Aluno_Disciplina` (
     `id_usuario` BIGINT UNSIGNED NOT NULL,
     `id_disciplina` BIGINT UNSIGNED NOT NULL,
     PRIMARY KEY (`id_usuario`, `id_disciplina`),
@@ -44,7 +48,7 @@ CREATE TABLE `Aluno_Disciplina`(
 );
 
 -- Tabela Professor_Disciplina (Relacionamento muitos-para-muitos)
-CREATE TABLE `Professor_Disciplina`(
+CREATE TABLE `Professor_Disciplina` (
     `id_usuario` BIGINT UNSIGNED NOT NULL,
     `id_disciplina` BIGINT UNSIGNED NOT NULL,
     PRIMARY KEY (`id_usuario`, `id_disciplina`),
