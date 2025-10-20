@@ -1,57 +1,15 @@
 
-CREATE DATABASE  bd_TCC;
-USE bd_TCC;
+Tabela usuarios:
 
--- Tabela de Cursos
-CREATE TABLE `Cursos` (
-    `id_curso` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nome_curso` VARCHAR(255) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Chave primária e auto incremento',
+  `nome_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `cpf_user` CHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Apenas números',
+  `email_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `telefone_user` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `senha_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Atenção: Não criptografada (texto puro) no momento.',
+  `tipo_usuario` ENUM('Professor','Administrador') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_user_UNIQUE` (`email_user`) -- É bom ter o email como UNIQUE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Tabela de Turnos
-CREATE TABLE `Turnos` (
-    `id_turno` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nome` VARCHAR(255) NOT NULL,
-    `descricao` VARCHAR(255) NOT NULL,
-    `ordem` INT NOT NULL
-);
-
--- Tabela de Usuários
-CREATE TABLE `Usuario` (
-    `id_usuario` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nome` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `senha` VARCHAR(255) NOT NULL,
-    `tipo_usuario` ENUM('aluno', 'professor', 'admin') NOT NULL,
-    `id_curso` BIGINT UNSIGNED,
-    `id_turno` BIGINT UNSIGNED,
-    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_curso`),
-    FOREIGN KEY (`id_turno`) REFERENCES `Turnos`(`id_turno`)
-);
-
--- Tabela de Disciplinas
-CREATE TABLE `Disciplinas` (
-    `id_disciplina` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nome` VARCHAR(255) NOT NULL,
-    `codigo` VARCHAR(255) NOT NULL,
-    `id_curso` BIGINT UNSIGNED,
-    FOREIGN KEY (`id_curso`) REFERENCES `Cursos`(`id_curso`)
-);
-
--- Tabela Aluno_Disciplina (Relacionamento muitos-para-muitos)
-CREATE TABLE `Aluno_Disciplina` (
-    `id_usuario` BIGINT UNSIGNED NOT NULL,
-    `id_disciplina` BIGINT UNSIGNED NOT NULL,
-    PRIMARY KEY (`id_usuario`, `id_disciplina`),
-    FOREIGN KEY (`id_usuario`) REFERENCES `Usuario`(`id_usuario`),
-    FOREIGN KEY (`id_disciplina`) REFERENCES `Disciplinas`(`id_disciplina`)
-);
-
--- Tabela Professor_Disciplina (Relacionamento muitos-para-muitos)
-CREATE TABLE `Professor_Disciplina` (
-    `id_usuario` BIGINT UNSIGNED NOT NULL,
-    `id_disciplina` BIGINT UNSIGNED NOT NULL,
-    PRIMARY KEY (`id_usuario`, `id_disciplina`),
-    FOREIGN KEY (`id_usuario`) REFERENCES `Usuario`(`id_usuario`),
-    FOREIGN KEY (`id_disciplina`) REFERENCES `Disciplinas`(`id_disciplina`)
-);

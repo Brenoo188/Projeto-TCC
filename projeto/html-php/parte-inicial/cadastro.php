@@ -1,57 +1,20 @@
 ﻿<?php
-if (isset($_POST['submit'])) {
-    
-    $nome = $_POST['nome_user'];
-    $cpf = $_POST['cpf_user'];
-    $email = $_POST['email_user'];
-    $telefone = $_POST['telefone_user'];
-    $senha = $_POST['senha_user'];
-    $confirma_senha = $_POST['Csenha_user'];
-    $tipo_usuario = $_POST['tipo_usuario'];
 
+if (isset($_POST['submit'])) {   
 
-    $campos_vazios = false;
-    //echo $nome; echo $cpf; echo $email; echo $telefone; echo $senha; echo $confirma_senha; echo $tipo_usuario; 
+include_once('../conexao.php');
 
-if (empty(trim($nome)) || empty(trim($cpf)) || empty(trim($email)) || empty(trim($telefone)) || empty(trim($senha)) || empty(trim($confirma_senha)) || empty(trim($tipo_usuario))) {
-    echo "<script>alert('Por favor, preencha todos os campos!');</script>";
-} elseif ($senha !== $confirma_senha) {
-    echo "<script>alert('As senhas não conferem!');</script>";
-} else {
-   
+$nome_usuario = $_POST ['nome_user'];
+$cpf_usuario = $_POST ['cpf_user'];
+$email_usuario = $_POST ['email_user']; 
+$telefone_usuario = $_POST ['telefone_user'];
+$senha_usuario = $_POST ['senha_user'];
+$tipo_usuario = $_POST ['tipo_usuario'];
+
+$resultado = mysqli_query($conexao, "INSERT INTO usuarios(nome_user, cpf_user, email_user, telefone_user, senha_user, tipo_usuario) 
+VALUES ('$nome_usuario', '$cpf_usuario', '$email_usuario', '$telefone_usuario', '$senha_usuario', '$tipo_usuario')");
+
 }
-
-        
-        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-      
-        include_once('../conexao.php');
-
-        
-        $sql = "INSERT INTO Usuario (nome, cpf, email, telefone, senha, tipo_usuario) 
-        VALUES (?, ?, ?, ?, ?, ?)";
-        // Prepara a instrução SQL para evitar SQL Injection
-        $stmt = mysqli_prepare($conexao, $sql);
-
-        $stmt = mysqli_prepare($conexao, $sql);
-
-        if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ssssss", $nome, $cpf, $email, $telefone, $senha_hash, $tipo_usuario);
-
-         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='index.php';</script>";
-        } else {
-        echo "<script>alert('Erro ao cadastrar: " . mysqli_stmt_error($stmt) . "');</script>";
-        }
-
-            mysqli_stmt_close($stmt);
-        } else {
-         echo "<script>alert('Erro na preparação da query: " . mysqli_error($conexao) . "');</script>";
-}
-
-
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +38,7 @@ if (empty(trim($nome)) || empty(trim($cpf)) || empty(trim($email)) || empty(trim
         <div class="caixa_int">
             <h3 style="text-align: center;"><strong>Dados Pessoais</strong></h3><br>
 
-            <form method="post" action="">
+            <form method="post" action="cadastro.php">
                 <div class="mb-3" style="width: 350px; margin: 10px;">
                     <label for="nome_user" class="form-label"><strong>Nome</strong></label>
                     <input type="text" class="form-control" id="nome_user" name="nome_user" 

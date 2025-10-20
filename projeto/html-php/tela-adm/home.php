@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+
+if (!isset($_SESSION['id']) || !isset($_SESSION['tipo_usuario'])) {
+    header('Location: ../parte-inicial/index.php?erro=nao_logado');
+    exit();
+}
+
+if ($_SESSION['tipo_usuario'] !== 'Administrador') {
+    header('Location: ../parte-inicial/index.php?erro=acesso_negado');
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +38,7 @@
 
             <li class="menu-botoes ativo" style="background-color: rgb(0, 92, 169);">
 
-                <a href="home.html">
+                <a href="home.php">
 
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="txt-link">home</span>
