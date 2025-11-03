@@ -71,3 +71,30 @@ ul li.menu-botoes a .icon {
     width: 30px;
     text-align: center;
 }
+
+.container-cal {
+
+    background-color: #003366;
+    display: flex;
+    height: 600px;
+    width: 1500px;
+    position: fixed;
+    bottom: 200px;
+    left: 200px;
+    border-radius: 10px;
+}
+
+.table {
+
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+.col {
+
+    text-align: center;
+}
+

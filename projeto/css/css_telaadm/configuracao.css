@@ -71,3 +71,10 @@ ul li.menu-botoes a .icon {
     width: 30px;
     text-align: center;
 }
+
+.btn {
+
+    position: fixed;
+    display: flex;
+    left: 1850px;
+}
