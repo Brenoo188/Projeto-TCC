@@ -71,3 +71,158 @@ ul li.menu-botoes a .icon {
     width: 30px;
     text-align: center;
 }
+
+main.conteudo {
+    margin-left: 60px; /* Espaço pro menu lateral fechado */
+    padding: 40px;
+    transition: margin-left 0.3s;
+}
+
+nav.menu-lateral.expandir_btn ~ main.conteudo {
+    margin-left: 200px; /* Ajusta quando o menu está expandido */
+}
+
+main.conteudo h1 {
+    font-size: 28px;
+    color: #003366;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ===================== */
+/* PERFIL */
+/* ===================== */
+
+section.perfil {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url('../../img/default-perfil.png') no-repeat center center/cover;
+    border: 3px solid #003366;
+}
+
+.info p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.info strong {
+    color: #003366;
+}
+
+/* ===================== */
+/* ABAS */
+/* ===================== */
+
+.abas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.abas button {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.abas button.ativo,
+.abas button:hover {
+    background-color: #003366;
+    color: white;
+    border-color: #003366;
+}
+
+/* ===================== */
+/* CONTEÚDO DAS ABAS */
+/* ===================== */
+
+.conteudo-tab {
+    display: none;
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.conteudo-tab.ativo {
+    display: block;
+}
+
+.conteudo-tab h2 {
+    color: #003366;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.conteudo-tab p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* ===================== */
+/* RESPONSIVIDADE */
+/* ===================== */
+
+@media (max-width: 768px) {
+    main.conteudo {
+        padding: 20px;
+        margin-left: 60px;
+    }
+
+    section.perfil {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .foto-perfil {
+        width: 80px;
+        height: 80px;
+    }
+}
+.btn-editar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #005ca9;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.btn-editar:hover {
+    background-color: #007bff;
+}
+
+/* Campos quando estiver no modo de edição */
+.campo-edicao {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+}
