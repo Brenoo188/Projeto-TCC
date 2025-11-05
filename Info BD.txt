@@ -3,13 +3,22 @@ Tabela usuarios:
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Chave primária e auto incremento',
-  `nome_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `cpf_user` CHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Apenas números',
-  `email_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `telefone_user` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `senha_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Atenção: Não criptografada (texto puro) no momento.',
-  `tipo_usuario` ENUM('Professor','Administrador') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nome_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cpf_user` CHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Apenas números',
+  `email_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone_user` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `senha_user` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Atenção: Não criptografada (texto puro) no momento.',
+  `tipo_usuario` ENUM('Professor','Administrador') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_user_UNIQUE` (`email_user`) -- É bom ter o email como UNIQUE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `email_user_UNIQUE` (`email_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+Tabela materias
+
+CREATE TABLE IF NOT EXISTS `materias` (
+  `id_materia` INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único da matéria',
+  `nome_materia` VARCHAR(150) NOT NULL COMMENT 'Nome da matéria (ex: Matemática)',
+  `carga_horaria` INT NOT NULL COMMENT 'Carga horária em horas',
+  `descricao` TEXT NULL DEFAULT NULL COMMENT 'Breve descrição da matéria',
+  PRIMARY KEY (`id_materia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

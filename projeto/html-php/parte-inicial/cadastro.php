@@ -1,21 +1,44 @@
 ﻿<?php
-
 if (isset($_POST['submit'])) {   
+    include_once('../conexao.php');
 
-include_once('../conexao.php');
+    $nome_usuario = $_POST['nome_user'];
+    $cpf_usuario = $_POST['cpf_user'];
+    $email_usuario = $_POST['email_user']; 
+    $telefone_usuario = $_POST['telefone_user'];
+    $senha_usuario = $_POST['senha_user'];
+    $tipo_usuario = $_POST['tipo_usuario'];
 
-$nome_usuario = $_POST ['nome_user'];
-$cpf_usuario = $_POST ['cpf_user'];
-$email_usuario = $_POST ['email_user']; 
-$telefone_usuario = $_POST ['telefone_user'];
-$senha_usuario = $_POST ['senha_user'];
-$tipo_usuario = $_POST ['tipo_usuario'];
+    // Verifica se o tipo é administrador
+    if ($tipo_usuario === 'Administrador') {
+        $verifica = $conexao->prepare("SELECT COUNT(*) as total FROM usuarios WHERE tipo_usuario = 'Administrador'");
+        $verifica->execute();
+        $resultado = $verifica->get_result()->fetch_assoc();
 
-$resultado = mysqli_query($conexao, "INSERT INTO usuarios(nome_user, cpf_user, email_user, telefone_user, senha_user, tipo_usuario) 
-VALUES ('$nome_usuario', '$cpf_usuario', '$email_usuario', '$telefone_usuario', '$senha_usuario', '$tipo_usuario')");
+        if ($resultado['total'] >= 1) {
+            echo "<script>alert('Já existe um administrador cadastrado.'); window.location.href='cadastro.php';</script>";
+            exit();
+        }
+    }
 
+    // Criptografa a senha
+    $senha_hash = password_hash($senha_usuario, PASSWORD_DEFAULT);
+
+    // Inserção segura com prepared statement
+    $stmt = $conexao->prepare("
+        INSERT INTO usuarios (nome_user, cpf_user, email_user, telefone_user, senha_user, tipo_usuario) 
+        VALUES (?, ?, ?, ?, ?, ?)
+    ");
+    $stmt->bind_param("ssssss", $nome_usuario, $cpf_usuario, $email_usuario, $telefone_usuario, $senha_hash, $tipo_usuario);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Usuário cadastrado com sucesso!'); window.location.href='index.php';</script>";
+    } else {
+        echo "<script>alert('Erro ao cadastrar usuário.');</script>";
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
