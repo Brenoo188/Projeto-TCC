@@ -1,118 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../css/css-prof/conta.css">
-    <title>Configurações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/css-prof/conta.css">
+  <title>Conta do Professor</title>
 </head>
+
 <body>
-    <nav class="menu-lateral">
-
-        <div class="btn-expandir" id="btn-expan" style="padding-right: 0px;">
-
-            <i class="bi bi-list"></i>
-
-        </div>
-
-        <ul>
-
-            <li class="menu-botoes ativo">
-
-                <a href="home.php">
-
-                    <span class="icon"><i class="bi bi-house"></i></span>
-                    <span class="txt-link">home</span>
-
-                </a>
-
-            </li>
-
-
-
-            <li class="menu-botoes">
-
-                <a href="calendario.html">
-
-                    <span class="icon"><i class="bi bi-calendar"></i></span>
-                    <span class="txt-link">Calendário</span>
-
-                </a>
-
-            </li>
-
-
-            
-            <li class="menu-botoes">
-
-                <a href="configuracao.html">
-
-                    <span class="icon"><i class="bi bi-gear"></i></span>
-                    <span class="txt-link">Configuração</span>
-
-                </a>
-
-            </li>
-
-
-
-            <li class="menu-botoes">
-
-                <a href="conta.html" style="background-color: rgb(0, 92, 169);">
-
-                    <span class="icon"><i class="bi bi-person-circle"></i></span>
-                    <span class="txt-link">Conta</span>
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
-    <main class="conteudo da conta">
-        <button id="btnEditar" class="btn-editar"><i class="bi bi-pencil-square"></i> Editar</button>
-       
-    <h1>Roger Lakoski</h1>
-   
-        <section class="perfil"> 
-     
-
-        <div class="info">
-            <p><strong>Id do Professor:</strong> 0000000</p>
-             <p><strong>Turno:</strong> Matutino</p>
-
-              </div>
-    </section>
-    
-    <div class="abas">
-        <button class="btn btn-outline-secondary" data-tab="dados">Dados pessoais</button>
-        <button class="btn btn-outline-secondary" data-tab="documentos">Documentos</button>
+  <nav class="menu-lateral">
+    <div class="btn-expandir" id="btn-expan">
+      <i class="bi bi-list"></i>
     </div>
+
+    <ul>
+      <li class="menu-botoes ativo">
+        <a href="home.php">
+          <span class="icon"><i class="bi bi-house"></i></span>
+          <span class="txt-link">Home</span>
+        </a>
+      </li>
+
+      <li class="menu-botoes">
+        <a href="calendario.html">
+          <span class="icon"><i class="bi bi-calendar"></i></span>
+          <span class="txt-link">Calendário</span>
+        </a>
+      </li>
+
+      <li class="menu-botoes">
+        <a href="configuracao.html">
+          <span class="icon"><i class="bi bi-gear"></i></span>
+          <span class="txt-link">Configuração</span>
+        </a>
+      </li>
+
+      <li class="menu-botoes">
+        <a href="conta.html" style="background-color: rgb(0, 92, 169);">
+          <span class="icon"><i class="bi bi-person-circle"></i></span>
+          <span class="txt-link">Conta</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="conteudo">
+    <button id="btnEditar" class="btn-editar">
+      <i class="bi bi-pencil-square"></i> Editar
+    </button>
+
+    <h1>Roger Lakoski</h1>
+
+    <section class="perfil">
+      <div class="info">
+        <p><strong>Id do Professor:</strong> 0000000</p>
+        <p><strong>Turno:</strong> Matutino</p>
+      </div>
+    </section>
+
+    <div class="abas">
+      <button class="btn btn-outline-secondary ativo" data-tab="dados">Dados pessoais</button>
+    </div>
+
     <section class="conteudo-tab ativo" id="dados">
-            <h2>Identificação</h2>
-            <p><strong>Data de nascimento:</strong> 10/07/1988</p>
-            <p><strong>Naturalidade:</strong> Curitiba</p>
-           
-        </section>
+      <h2>Identificação</h2>
+      <p><strong>Data de nascimento:</strong> 10/07/1988</p>
+      <p><strong>Naturalidade:</strong> Curitiba</p>
+      <p><strong>E-mail:</strong> roger.lakoski@escola.com</p>
+    </section>
+  </main>
 
-        <section class="conteudo-tab" id="documentos">
-            <h2>Documentos</h2>
-            <p>RG, CPF e outros documentos do servidor.</p>
-        </section>
+  <script>
+    // --- Lógica para o Estado Ativo do Menu ---
+    const menuItem = document.querySelectorAll('.menu-botoes');
+    function ativarLink() {
+      menuItem.forEach((item) => item.classList.remove('ativo'));
+      this.classList.add('ativo');
+    }
+    menuItem.forEach((item) => item.addEventListener('click', ativarLink));
 
-        <section class="conteudo-tab" id="Dados">
-            <h2>Dados</h2>
-            <p>E-mail, Senha.</p>
-        </section>
+    // --- Lógica para Expandir o Menu ---
+    const btnExpandir = document.querySelector('#btn-expan');
+    const menuLateral = document.querySelector('nav.menu-lateral');
+    btnExpandir.addEventListener('click', function () {
+      menuLateral.classList.toggle('expandir_btn');
+    });
 
-    
-    </main>
-    
-    <script src="../../Javascript/js-telaprof/conta.js"></script>
+    // --- Lógica para as Abas (apenas uma agora) ---
+    const botoesAbas = document.querySelectorAll('.abas button');
+    const conteudosAbas = document.querySelectorAll('.conteudo-tab');
+    botoesAbas.forEach((botao) => {
+      botao.addEventListener('click', function () {
+        botoesAbas.forEach((b) => b.classList.remove('ativo'));
+        conteudosAbas.forEach((aba) => aba.classList.remove('ativo'));
+        this.classList.add('ativo');
+        const tabId = this.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('ativo');
+      });
+    });
 
+    // --- Lógica do botão "Editar" ---
+    const btnEditar = document.getElementById('btnEditar');
+    let modoEdicao = false;
+
+    if (btnEditar) {
+      btnEditar.addEventListener('click', () => {
+        const elementos = document.querySelectorAll('main.conteudo p');
+        if (!modoEdicao) {
+          // Ativa o modo de edição (menos nome e ID)
+          elementos.forEach(el => {
+            const texto = el.innerText;
+            if (texto.toLowerCase().includes('id do professor') || texto.includes('Roger')) return;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = texto.replace(/^.*?:\s*/, '');
+            input.classList.add('campo-edicao');
+            el.innerHTML = el.innerHTML.split(':')[0] + ': ';
+            el.appendChild(input);
+          });
+          btnEditar.innerHTML = '<i class="bi bi-save"></i> Salvar';
+          modoEdicao = true;
+        } else {
+          // Salva as alterações
+          elementos.forEach(el => {
+            const input = el.querySelector('input');
+            if (input) {
+              el.innerHTML = el.innerHTML.split(':')[0] + ': ' + input.value;
+            }
+          });
+          btnEditar.innerHTML = '<i class="bi bi-pencil-square"></i> Editar';
+          modoEdicao = false;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
