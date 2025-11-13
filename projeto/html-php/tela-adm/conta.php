@@ -7,17 +7,39 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['tipo_usuario'])) {
     exit();
 }
 
+// Função segura para contar registros (nunca mais vai dar bind_param on bool)
+function safeCount($conexao, $sql, $types = "", $params = []) {
+    $stmt = $conexao->prepare($sql);
+    if (!$stmt) {
+        error_log("Erro no prepare (conta.php): " . $conexao->error . " | SQL: " . $sql);
+        return "Erro";
+    }
+    if (!empty($types) && !empty($params)) {
+        $stmt->bind_param($types, ...$params);
+    }
+    if (!$stmt->execute()) {
+        error_log("Erro ao executar query: " . $stmt->error);
+        return "Erro";
+    }
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $stmt->close();
+    return $row['total'] ?? 0;
+}
+
 // Buscar dados do usuário logado
 $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE id = ?");
 $stmt->bind_param("i", $_SESSION['id']);
 $stmt->execute();
 $usuario = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 
 // Buscar dados do perfil extendido
 $stmt = $conexao->prepare("SELECT * FROM perfis_usuario WHERE id_usuario = ?");
 $stmt->bind_param("i", $_SESSION['id']);
 $stmt->execute();
 $perfil = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -312,60 +334,52 @@ $perfil = $stmt->get_result()->fetch_assoc();
                     </div>
 
                     <!-- Estatísticas da Conta -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0">
-                                <i class="bi bi-graph-up"></i> Estatísticas da Conta
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="text-center">
-                                        <h4 class="text-primary"><?php
-                                            $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM usuarios WHERE data_criacao >= DATE_SUB(NOW(), INTERVAL 30 DAY)");
-                                            $stmt->execute();
-                                            echo $stmt->get_result()->fetch_assoc()['total'];
-                                        ?></h4>
-                                        <small>Novos usuários (30 dias)</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="text-center">
-                                        <h4 class="text-success"><?php
-                                            $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM materias WHERE id_usuario_criador = ?");
-                                            $stmt->bind_param("i", $_SESSION['id']);
-                                            $stmt->execute();
-                                            echo $stmt->get_result()->fetch_assoc()['total'];
-                                        ?></h4>
-                                        <small>Matérias criadas</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="text-center">
-                                        <h4 class="text-info"><?php
-                                            $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM eventos_calendario WHERE id_usuario_criador = ?");
-                                            $stmt->bind_param("i", $_SESSION['id']);
-                                            $stmt->execute();
-                                            echo $stmt->get_result()->fetch_assoc()['total'];
-                                        ?></h4>
-                                        <small>Eventos criados</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="text-center">
-                                        <h4 class="text-warning"><?php
-                                            $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM notificacoes WHERE id_usuario_destino = ? AND lida = 0");
-                                            $stmt->bind_param("i", $_SESSION['id']);
-                                            $stmt->execute();
-                                            echo $stmt->get_result()->fetch_assoc()['total'];
-                                        ?></h4>
-                                        <small>Notificações não lidas</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">
+            Estatísticas da Conta
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center">
+                    <h4 class="text-primary">
+                        <?php echo safeCount($conexao, "SELECT COUNT(*) as total FROM usuarios WHERE data_criacao >= DATE_SUB(NOW(), INTERVAL 30 DAY)"); ?>
+                    </h4>
+                    <small>Novos usuários (30 dias)</small>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="text-center">
+                    <h4 class="text-success">
+                        <?php echo safeCount($conexao, "SELECT COUNT(*) as total FROM materias WHERE criada_por = ?", "i", [$_SESSION['id']]); ?>
+                    </h4>
+                    <small>Matérias criadas</small>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="text-center">
+                    <h4 class="text-info">
+                        <?php echo safeCount($conexao, "SELECT COUNT(*) as total FROM eventos_calendario WHERE id_usuario_criador = ?", "i", [$_SESSION['id']]); ?>
+                    </h4>
+                    <small>Eventos criados</small>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="text-center">
+                    <h4 class="text-warning">
+                        <?php echo safeCount($conexao, "SELECT COUNT(*) as total FROM notificacoes WHERE id_usuario_destino = ? AND lida = 0", "i", [$_SESSION['id']]); ?>
+                    </h4>
+                    <small>Notificações não lidas</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
                     <!-- Ações da Conta -->
                     <div class="card mt-4">

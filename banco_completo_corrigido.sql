@@ -1,15 +1,15 @@
 -- BANCO DE DADOS COMPLETO CORRIGIDO PARA O SISTEMA ACADÊMICO TCC
 -- Execute este script no MySQL/phpMyAdmin para criar/corrigir o banco
 
- DROP DATABASE IF EXISTS bd_tcc;
+-- DROP DATABASE IF EXISTS bd_tcc;
 CREATE DATABASE IF NOT EXISTS bd_tcc CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE bd_tcc;
 
 -- Tabela de usuários
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_user VARCHAR(255) NOT NULL,
-    email_user VARCHAR(255) NOT NULL UNIQUE,
+    nome_user VARCHAR(100) NOT NULL,
+    email_user VARCHAR(100) NOT NULL UNIQUE,
     cpf_user VARCHAR(20) NOT NULL UNIQUE,
     telefone_user VARCHAR(20),
     senha_user VARCHAR(255) NOT NULL,
@@ -164,11 +164,11 @@ ORDER BY RAND()
 LIMIT 6;
 
 -- ÍNDICES PARA MELHORAR PERFORMANCE
-CREATE INDEX IF NOT EXISTS idx_notificacoes_destino_lida ON notificacoes(id_usuario_destino, lida);
-CREATE INDEX IF NOT EXISTS idx_notificacoes_criada_em ON notificacoes(criada_em);
-CREATE INDEX IF NOT EXISTS idx_eventos_data ON eventos_calendario(data_inicio);
-CREATE INDEX IF NOT EXISTS idx_logs_data_hora ON logs_atividades(data_hora);
-CREATE INDEX IF NOT EXISTS idx_logs_usuario ON logs_atividades(id_usuario);
+CREATE INDEX idx_notificacoes_destino_lida ON notificacoes(id_usuario_destino, lida);
+CREATE INDEX idx_notificacoes_criada_em ON notificacoes(criada_em);
+CREATE INDEX idx_eventos_data ON eventos_calendario(data_inicio);
+CREATE INDEX idx_logs_data_hora ON logs_atividades(data_hora);
+CREATE INDEX idx_logs_usuario ON logs_atividades(id_usuario);
 
 -- CRIAR VIEW PARA LISTAR AULAS COMO EVENTOS
 CREATE OR REPLACE VIEW view_aulas_eventos AS
@@ -176,14 +176,14 @@ SELECT
     e.id,
     e.titulo,
     e.descricao,
-    e.data_inicio as data_aula,
+    e.data_inicio AS data_aula,
     e.hora_inicio,
     e.data_fim,
     e.hora_fim,
-    e.local_evento as sala,
+    e.local_evento AS sala,
     m.nome_materia,
-    u.nome_user as nome_professor,
-    e.tipo_evento as tipo_aula,
+    u.nome_user AS nome_professor,
+    e.tipo_evento AS tipo_aula,
     e.status,
     CASE
         WHEN e.status = 'planejado' THEN 'planejada'
@@ -191,7 +191,7 @@ SELECT
         WHEN e.status = 'cancelado' THEN 'cancelada'
         WHEN e.status = 'adiado' THEN 'adiada'
         ELSE e.status
-    END as status_aula
+    END AS status_aula
 FROM eventos_calendario e
 LEFT JOIN materias m ON e.id_materia = m.id
 LEFT JOIN usuarios u ON e.id_usuario_criador = u.id
