@@ -1,100 +1,149 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+/* Estilos para a página de calendário */
+
+.conteudo-calendario {
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    background-color: #f8f9fa;
+    min-height: 100vh;
 }
 
-body{
-    height: 100vh;
+/* Quando o menu está recolhido */
+nav.menu-lateral.expandir_btn + .conteudo-calendario {
+    margin-left: 80px;
 }
 
-nav.menu-lateral {
-    width: 60px;
-    height: 100%;
-    background-color:#003366;
-    padding-top: 20px;
-    position: fixed;
-    box-shadow: 4px 0 0 rgb(15, 43, 68);
-    overflow: hidden;
-    transition: .3s;
-}
-
-/* Classe CSS para expandir a largura, ativada pelo JS */
-nav.menu-lateral.expandir_btn {
-    width: 200px;
-}
-
-.btn-expandir {
-    width: 100%;
-    padding: 0 20px 20px 20px;
-}
-
-.btn-expandir > i {
-    color: #ffffff;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-ul {
-    height: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul li.menu-botoes {
-    transition: .4s;
-}
-
-ul > li.menu-botoes a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-
-    /* CORREÇÃO: Garante que o link ocupe toda a largura do item */
-    width: 100%;
-
-    margin-bottom: 5px;
-}
-
-ul > li.menu-botoes a .txt-link{
-    margin-left: 20px;
-}
-
-ul li.menu-botoes a .icon {
-    font-size: 24px;
-    color: white;
-    width: 30px;
-    text-align: center;
-}
-
-.container-cal {
-
-    background-color: #003366;
-    display: flex;
-    height: 600px;
-    width: 1500px;
-    position: fixed;
-    bottom: 200px;
-    left: 200px;
+/* Cards principais */
+.card {
+    border: none;
     border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
-.table {
-
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.col {
-
-    text-align: center;
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 500;
+    padding: 1rem 1.25rem;
 }
 
+/* Calendário FullCalendar */
+#calendario {
+    height: 600px;
+}
+
+.fc {
+    font-family: inherit;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.fc-button-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 500;
+}
+
+.fc-button-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.fc-day-today {
+    background-color: #e7f3ff !important;
+}
+
+.fc-event {
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fc-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Badges de tipo de evento */
+.tipo-prova {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.tipo-trabalho {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+}
+
+.tipo-reuniao {
+    background-color: #6f42c1 !important;
+    color: white !important;
+}
+
+.tipo-aula {
+    background-color: #198754 !important;
+    color: white !important;
+}
+
+.tipo-outro {
+    background-color: #0dcaf0 !important;
+    color: white !important;
+}
+
+/* Lista de próximos eventos */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Modal de evento */
+.modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Botões */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo-calendario {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    #calendario {
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

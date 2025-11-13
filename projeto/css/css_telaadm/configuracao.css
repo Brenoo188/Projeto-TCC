@@ -1,80 +1,189 @@
-﻿* {
+/* Estilos para a página de configurações */
+
+.conteudo-configuracao {
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Quando o menu está recolhido */
+nav.menu-lateral.expandir_btn + .conteudo-configuracao {
+    margin-left: 80px;
+}
+
+/* Cards principais */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 500;
+    padding: 1rem 1.25rem;
+}
+
+/* Form controls */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Form switches */
+.form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Header */
+h1 {
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h5 {
+    color: #495057;
+    font-weight: 600;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
 }
 
-body{
-    height: 100vh;
+/* Ícones */
+.bi {
+    vertical-align: -0.125em;
 }
 
-nav.menu-lateral {
-    width: 60px;
-    height: 100%;
-    background-color:#003366;
-    padding-top: 20px;
-    position: fixed;
-    box-shadow: 4px 0 0 rgb(15, 43, 68);
-    overflow: hidden;
-    transition: .3s;
-}
-
-/* Classe CSS para expandir a largura, ativada pelo JS */
-nav.menu-lateral.expandir_btn {
-    width: 200px;
-}
-
-.btn-expandir {
-    width: 100%;
-    padding: 0 20px 20px 20px;
-}
-
-.btn-expandir > i {
-    color: #ffffff;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-ul {
-    height: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul li.menu-botoes {
-    transition: .4s;
-}
-
-ul > li.menu-botoes a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-
-    /* CORREÇÃO: Garante que o link ocupe toda a largura do item */
-    width: 100%;
-
-    margin-bottom: 5px;
-}
-
-ul > li.menu-botoes a .txt-link{
-    margin-left: 20px;
-}
-
-ul li.menu-botoes a .icon {
-    font-size: 24px;
-    color: white;
-    width: 30px;
-    text-align: center;
-}
-
+/* Botões */
 .btn {
+    border-radius: 6px;
+    font-weight: 500;
+}
 
-    position: fixed;
-    display: flex;
-    left: 1850px;
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+}
+
+/* Form text */
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo-configuracao {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .row .col-md-6 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Textos */
+.text-muted {
+    color: #6c757d !important;
+}
+
+/* Print styles */
+@media print {
+    .conteudo-configuracao {
+        margin-left: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .menu-lateral,
+    .btn,
+    .form-check-input {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+        break-inside: avoid;
+    }
 }

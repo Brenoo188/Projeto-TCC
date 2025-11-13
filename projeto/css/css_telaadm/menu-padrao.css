@@ -1,0 +1,469 @@
+/* =====================================================
+   MENU LATERAL PADRÃO - SISTEMA ACADÊMICO
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Menu Lateral */
+.menu-lateral {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.menu-lateral.expandir {
+    width: 250px;
+}
+
+/* Botão Expandir */
+.btn-expandir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 24px;
+}
+
+.btn-expandir:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-expandir i {
+    transition: transform 0.3s ease;
+}
+
+.menu-lateral.expandir .btn-expandir i {
+    transform: rotate(180deg);
+}
+
+/* Lista do Menu */
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Botões do Menu */
+.menu-botoes {
+    position: relative;
+    margin: 5px 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.menu-botoes a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-botoes a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-botoes:hover a::before {
+    left: 100%;
+}
+
+/* Ícones */
+.menu-botoes .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-botoes .txt-link {
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateX(-20px);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.menu-lateral.expandir .txt-link {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Hover Effects */
+.menu-botoes:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateX(5px);
+}
+
+.menu-botoes:hover .icon {
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+.menu-botoes:hover .txt-link {
+    color: #fff !important;
+}
+
+/* Estado Ativo */
+.menu-botoes.ativo {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu-botoes.ativo a {
+    color: #fff !important;
+}
+
+.menu-botoes.ativo .icon {
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+.menu-botoes.ativo::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: #fff;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Conteúdo Principal */
+main {
+    margin-left: 80px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+}
+
+.menu-lateral.expandir ~ main {
+    margin-left: 250px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-lateral {
+        width: 0;
+        transform: translateX(-100%);
+    }
+
+    .menu-lateral.expandir {
+        width: 250px;
+        transform: translateX(0);
+    }
+
+    main {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .menu-lateral.expandir ~ main {
+        margin-left: 0;
+    }
+}
+
+/* Animações Adicionais */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-lateral.expandir .menu-botoes {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.menu-lateral.expandir .menu-botoes:nth-child(2) { animation-delay: 0.1s; }
+.menu-lateral.expandir .menu-botoes:nth-child(3) { animation-delay: 0.2s; }
+.menu-lateral.expandir .menu-botoes:nth-child(4) { animation-delay: 0.3s; }
+.menu-lateral.expandir .menu-botoes:nth-child(5) { animation-delay: 0.4s; }
+.menu-lateral.expandir .menu-botoes:nth-child(6) { animation-delay: 0.5s; }
+.menu-lateral.expandir .menu-botoes:nth-child(7) { animation-delay: 0.6s; }
+.menu-lateral.expandir .menu-botoes:nth-child(8) { animation-delay: 0.7s; }
+.menu-lateral.expandir .menu-botoes:nth-child(9) { animation-delay: 0.8s; }
+.menu-lateral.expandir .menu-botoes:nth-child(10) { animation-delay: 0.9s; }
+
+/* Tooltip quando menu está recolhido */
+.menu-lateral:not(.expandir) .menu-botoes a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.menu-lateral:not(.expandir) .menu-botoes:hover a::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para diferentes tipos de conteúdo */
+.conteudo-cadastros,
+.conteudo-configuracao,
+.conteudo {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 15px 15px 0 0 !important;
+    border: none;
+    padding: 20px 25px;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Botões */
+.btn {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Formulários */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Tabelas */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.01);
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #fff;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+    color: #fff;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #f39c12 100%);
+    color: #212529;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: #fff;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card,
+.alert {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}

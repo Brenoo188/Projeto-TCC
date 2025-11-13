@@ -1,0 +1,101 @@
+VERIFICAÇÃO DE LINKAGES DO SISTEMA ACADÊMICO TCC
+============================================================
+
+ESTADO ATUAL DAS LINKAGENS CORRETAS:
+
+1. home.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓
+
+2. calendario.php
+   - home.php ✓
+   - calendario.php ✓ (ativo)
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓
+
+3. cadastros_int.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓ (ativo)
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓
+
+4. professores.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓ (ativo)
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓
+
+5. materias.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓ (ativo)
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓
+
+6. notificacoes.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓ (ativo)
+   - conta.php ✓
+   - configuracao.php ✓
+
+7. conta.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓ (ativo)
+   - configuracao.php ✓
+
+8. configuracao.php
+   - home.php ✓
+   - calendario.php ✓
+   - cadastros_int.php ✓
+   - professores.php ✓
+   - materias.php ✓
+   - notificacoes.php ✓
+   - conta.php ✓
+   - configuracao.php ✓ (ativo)
+
+ALTERAÇÕES REALIZADAS:
+✓ Removido link para aulas.php de todos os menus
+✓ Integrado sistema de aulas ao calendário
+✓ Mantida consistência de navegação entre todos os CRUDs
+
+ESTRUTURA DE MENU PADRÃO PARA TODAS AS PÁGINAS:
+1. Home (home.php)
+2. Calendário (calendario.php) - INCLUI GESTÃO DE AULAS
+3. Cadastros (cadastros_int.php)
+4. Professores (professores.php) - APENAS ADMIN
+5. Matérias (materias.php) - APENAS ADMIN
+6. Notificações (notificacoes.php)
+7. Conta (conta.php)
+8. Configuração (configuracao.php)
+
+OBS: Aula management foi movida para calendario.php conforme solicitado

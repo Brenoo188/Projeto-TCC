@@ -22,3 +22,90 @@ CREATE TABLE IF NOT EXISTS `materias` (
   `descricao` TEXT NULL DEFAULT NULL COMMENT 'Breve descrição da matéria',
   PRIMARY KEY (`id_materia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+Tabela de recuperação de senha
+
+CREATE TABLE IF NOT EXISTS `recuperacao_senha` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT NOT NULL COMMENT 'ID do usuário solicitante',
+  `token` VARCHAR(64) NOT NULL COMMENT 'Token único para redefinição',
+  `expiracao` DATETIME NOT NULL COMMENT 'Data e hora de expiração do token',
+  `utilizado` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '0=Não utilizado, 1=Utilizado',
+  `criado_em` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data de criação',
+  PRIMARY KEY (`id`),
+  INDEX `idx_token` (`token`),
+  INDEX `idx_expiracao` (`expiracao`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+Tabela de logs de atividades
+
+CREATE TABLE IF NOT EXISTS `logs_atividades` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT NOT NULL COMMENT 'ID do usuário que realizou a ação',
+  `acao` VARCHAR(100) NOT NULL COMMENT 'Tipo de ação (login, logout, cadastro, etc.)',
+  `descricao` TEXT NULL DEFAULT NULL COMMENT 'Descrição detalhada da atividade',
+  `ip_address` VARCHAR(45) NULL DEFAULT NULL COMMENT 'Endereço IP do usuário',
+  `user_agent` TEXT NULL DEFAULT NULL COMMENT 'Informações do navegador',
+  `data_hora` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora da atividade',
+  PRIMARY KEY (`id`),
+  INDEX `idx_usuario` (`id_usuario`),
+  INDEX `idx_acao` (`acao`),
+  INDEX `idx_data_hora` (`data_hora`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+Tabela de eventos do calendário
+
+CREATE TABLE IF NOT EXISTS `eventos_calendario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario_criador` INT NOT NULL COMMENT 'ID do usuário que criou o evento',
+  `titulo` VARCHAR(200) NOT NULL COMMENT 'Título do evento',
+  `descricao` TEXT NULL DEFAULT NULL COMMENT 'Descrição do evento',
+  `data_inicio` DATETIME NOT NULL COMMENT 'Data e hora de início',
+  `data_fim` DATETIME NULL DEFAULT NULL COMMENT 'Data e hora de término',
+  `tipo_evento` ENUM('prova','trabalho','reuniao','aula','outro') NOT NULL DEFAULT 'outro',
+  `cor` VARCHAR(7) NULL DEFAULT '#007bff' COMMENT 'Cor do evento em hexadecimal',
+  `local` VARCHAR(200) NULL DEFAULT NULL COMMENT 'Local do evento',
+  `criado_em` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `atualizado_em` DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `idx_usuario_criador` (`id_usuario_criador`),
+  INDEX `idx_data_inicio` (`data_inicio`),
+  INDEX `idx_tipo_evento` (`tipo_evento`),
+  FOREIGN KEY (`id_usuario_criador`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+Tabela de notificações
+
+CREATE TABLE IF NOT EXISTS `notificacoes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario_destino` INT NOT NULL COMMENT 'ID do usuário que receberá a notificação',
+  `id_usuario_remetente` INT NULL DEFAULT NULL COMMENT 'ID do usuário que enviou (NULL para sistema)',
+  `titulo` VARCHAR(200) NOT NULL COMMENT 'Título da notificação',
+  `mensagem` TEXT NOT NULL COMMENT 'Mensagem da notificação',
+  `tipo` ENUM('info','sucesso','aviso','erro') NOT NULL DEFAULT 'info',
+  `lida` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '0=Não lida, 1=Lida',
+  `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `data_leitura` DATETIME NULL DEFAULT NULL COMMENT 'Data quando a notificação foi lida',
+  PRIMARY KEY (`id`),
+  INDEX `idx_usuario_destino` (`id_usuario_destino`),
+  INDEX `idx_lida` (`lida`),
+  INDEX `idx_data_criacao` (`data_criacao`),
+  FOREIGN KEY (`id_usuario_destino`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`id_usuario_remetente`) REFERENCES `usuarios`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+Tabela de perfis (para upload de fotos)
+
+CREATE TABLE IF NOT EXISTS `perfis_usuario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT NOT NULL UNIQUE COMMENT 'ID do usuário (um por usuário)',
+  `foto_perfil` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Caminho da foto de perfil',
+  `biografia` TEXT NULL DEFAULT NULL COMMENT 'Biografia do usuário',
+  `especialidade` VARCHAR(150) NULL DEFAULT NULL COMMENT 'Especialidade (para professores)',
+  `formacao` VARCHAR(200) NULL DEFAULT NULL COMMENT 'Formação acadêmica',
+  `atualizado_em` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

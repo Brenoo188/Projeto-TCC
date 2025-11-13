@@ -44,7 +44,35 @@ ul {
 }
 
 ul li.menu-botoes {
-    transition: .4s;
+    transition: all .3s ease;
+    position: relative;
+}
+
+/* Efeito hover nos itens do menu */
+ul li.menu-botoes:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+ul li.menu-botoes:hover a {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+ul li.menu-botoes:hover .icon {
+    transform: scale(1.1);
+    transition: transform .3s ease;
+}
+
+/* Item ativo */
+ul li.menu-botoes.ativo {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ffffff;
+}
+
+ul li.menu-botoes.ativo a {
+    color: #ffffff;
+    font-weight: 600;
 }
 
 ul > li.menu-botoes a {

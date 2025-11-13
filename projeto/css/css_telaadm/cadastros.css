@@ -1,6 +1,6 @@
-/* Estilos para a p√°gina de conta */
+/* Estilos para a p·gina de Cadastros */
 
-.conteudo-conta {
+.conteudo-cadastros {
     margin-left: 280px;
     padding: 20px;
     transition: margin-left 0.3s ease;
@@ -8,8 +8,8 @@
     min-height: 100vh;
 }
 
-/* Quando o menu est√° recolhido */
-nav.menu-lateral.expandir_btn + .conteudo-conta {
+/* Quando o menu est· recolhido */
+nav.menu-lateral.expandir_btn + .conteudo-cadastros {
     margin-left: 80px;
 }
 
@@ -33,33 +33,6 @@ nav.menu-lateral.expandir_btn + .conteudo-conta {
     padding: 1rem 1.25rem;
 }
 
-/* Avatar do usu√°rio */
-.usuario-avatar-container {
-    position: relative;
-    display: inline-block;
-}
-
-.usuario-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: #6c757d;
-    border: 4px solid #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.usuario-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 /* Form controls */
 .form-control:focus {
     border-color: #007bff;
@@ -71,31 +44,64 @@ nav.menu-lateral.expandir_btn + .conteudo-conta {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Form switches */
-.form-check-input:checked {
-    background-color: #007bff;
-    border-color: #007bff;
+/* ValidaÁ„o de formul·rio */
+.is-invalid {
+    border-color: #dc3545;
 }
 
-/* Lista de atividades */
-.atividade-lista {
-    max-height: 400px;
-    overflow-y: auto;
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
 }
 
-.atividade-item {
-    padding: 0.75rem;
-    border-bottom: 1px solid #f8f9fa;
+/* Tabelas */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table tbody tr {
     transition: background-color 0.2s ease;
 }
 
-.atividade-item:hover {
+.table tbody tr:hover {
     background-color: #f8f9fa;
-    border-radius: 6px;
 }
 
-.atividade-item:last-child {
-    border-bottom: none;
+/* Checkboxes personalizados */
+.user-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+/* Botıes de aÁ„o */
+.btn-group .btn {
+    border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.btn-group .btn:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
 }
 
 /* Header */
@@ -111,12 +117,12 @@ h1 {
     margin: 0;
 }
 
-/* √çcones */
+/* Õcones */
 .bi {
     vertical-align: -0.125em;
 }
 
-/* Bot√µes */
+/* Botıes */
 .btn {
     border-radius: 6px;
     font-weight: 500;
@@ -142,16 +148,6 @@ h1 {
     border-color: #545b62;
 }
 
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-}
-
-.btn-warning:hover {
-    background-color: #e0a800;
-    border-color: #e0a800;
-}
-
 .btn-outline-primary {
     color: #007bff;
     border-color: #007bff;
@@ -172,16 +168,6 @@ h1 {
     border-color: #ffc107;
 }
 
-.btn-outline-info {
-    color: #17a2b8;
-    border-color: #17a2b8;
-}
-
-.btn-outline-info:hover {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-}
-
 .btn-outline-danger {
     color: #dc3545;
     border-color: #dc3545;
@@ -192,20 +178,34 @@ h1 {
     border-color: #dc3545;
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
+.btn-outline-info {
+    color: #17a2b8;
+    border-color: #17a2b8;
 }
 
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #c82333;
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
 }
 
-/* Form text */
-.form-text {
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-secondary {
     color: #6c757d;
-    font-size: 0.875rem;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
 /* Badges */
@@ -215,28 +215,27 @@ h1 {
     font-weight: 500;
 }
 
-/* Scrollbar personalizada */
-.atividade-lista::-webkit-scrollbar {
-    width: 6px;
+.badge-primary {
+    background-color: #007bff;
 }
 
-.atividade-lista::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
+.badge-danger {
+    background-color: #dc3545;
 }
 
-.atividade-lista::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 3px;
+.badge-success {
+    background-color: #28a745;
 }
 
-.atividade-lista::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+/* Form text */
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .conteudo-conta {
+    .conteudo-cadastros {
         margin-left: 0;
         padding: 15px;
     }
@@ -253,14 +252,38 @@ h1 {
         margin-bottom: 1rem;
     }
 
-    .usuario-avatar {
-        width: 80px;
-        height: 80px;
-        font-size: 2.5rem;
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .btn-group .btn {
+        padding: 0.125rem 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    .user-checkbox {
+        width: 1rem;
+        height: 1rem;
     }
 }
 
-/* Anima√ß√µes */
+@media (max-width: 576px) {
+    .d-flex.gap-2 {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .table th:nth-child(3),
+    .table td:nth-child(3) {
+        display: none;
+    }
+}
+
+/* AnimaÁıes */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -276,7 +299,7 @@ h1 {
     animation: fadeIn 0.3s ease;
 }
 
-.atividade-item {
+.table tbody tr {
     animation: fadeIn 0.3s ease;
 }
 
@@ -306,6 +329,17 @@ h1 {
     100% { transform: rotate(360deg); }
 }
 
+/* Estados de botıes desabilitados */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Tooltips personalizados */
+[data-bs-toggle="tooltip"] {
+    cursor: help;
+}
+
 /* Textos */
 .text-muted {
     color: #6c757d !important;
@@ -313,7 +347,7 @@ h1 {
 
 /* Print styles */
 @media print {
-    .conteudo-conta {
+    .conteudo-cadastros {
         margin-left: 0;
         padding: 0;
         background: white;
@@ -321,7 +355,8 @@ h1 {
 
     .menu-lateral,
     .btn,
-    .form-check-input {
+    .btn-group,
+    .user-checkbox {
         display: none !important;
     }
 
@@ -331,8 +366,7 @@ h1 {
         break-inside: avoid;
     }
 
-    .atividade-lista {
-        max-height: none;
-        overflow: visible;
+    .table {
+        font-size: 0.875rem;
     }
 }

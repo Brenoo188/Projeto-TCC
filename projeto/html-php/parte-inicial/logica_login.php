@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('../conexao.php');
+include_once('../funcoes_logs.php');
 
 // Se o formulário não foi enviado, volta
 if (!isset($_POST['submit'])) {
@@ -31,8 +32,8 @@ if (!$result || $result->num_rows !== 1) {
 
 $usuario = $result->fetch_assoc();
 
-// Senha atual salva em texto puro no DB — comparar diretamente
-if ($senha !== $usuario['senha_user']) {
+// Verifica senha usando password_verify para compatibilidade com password_hash
+if (!password_verify($senha, $usuario['senha_user'])) {
     header('Location: index.php?erro=senha_incorreta');
     exit();
 }
@@ -42,6 +43,9 @@ $_SESSION['id'] = $usuario['id'];
 $_SESSION['nome_user'] = $usuario['nome_user'];
 $_SESSION['email_user'] = $usuario['email_user'];
 $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
+
+// Registrar login no log de atividades
+registrarLogin($conexao, $usuario['id']);
 
 $tipo = $usuario['tipo_usuario'];
 if ($tipo === 'Administrador') {

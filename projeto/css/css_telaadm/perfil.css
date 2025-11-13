@@ -1,0 +1,179 @@
+/* Estilos para a página de perfil */
+
+.conteudo-perfil {
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Quando o menu está recolhido */
+nav.menu-lateral.expandir_btn + .conteudo-perfil {
+    margin-left: 80px;
+}
+
+/* Card da foto de perfil */
+.perfil-foto {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.perfil-foto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.foto-perfil-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.foto-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #f8f9fa;
+    border: 3px dashed #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 4rem;
+    color: #6c757d;
+}
+
+/* Card de informações */
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    border-bottom: none;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Formulários */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* Botões */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+    transform: translateY(-1px);
+}
+
+/* Upload de arquivo */
+input[type="file"] {
+    font-size: 0.9rem;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-right: 8px;
+    transition: background-color 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e9ecef;
+}
+
+/* Área de texto */
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo-perfil {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .foto-perfil-img,
+    .foto-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Animações */
+.alert {
+    animation: slideInDown 0.3s ease;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estados readonly */
+input.form-control[readonly] {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Textos pequenos */
+.text-muted {
+    font-size: 0.875rem;
+}
+
+.small {
+    font-size: 0.8rem;
+}

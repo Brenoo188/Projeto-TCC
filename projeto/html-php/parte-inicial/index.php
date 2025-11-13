@@ -56,8 +56,12 @@
                     <div class="pergunta-conta">
 
                         Não tem uma conta?
-                        <a href="../parte-inicial/cadastro.php">criar conta</a> 
+                        <a href="cadastro.php">criar conta</a>
 
+                    </div>
+
+                    <div class="pergunta-conta">
+                        <a href="recuperar-senha.php">Esqueceu a senha?</a>
                     </div>
 
             </div>

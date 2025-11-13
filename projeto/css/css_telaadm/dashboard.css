@@ -1,0 +1,333 @@
+/* Estilos para o Dashboard Administrativo */
+
+.conteudo-dashboard {
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Quando o menu está recolhido */
+nav.menu-lateral.expandir_btn + .conteudo-dashboard {
+    margin-left: 80px;
+}
+
+/* Cards principais */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 500;
+    padding: 1rem 1.25rem;
+}
+
+/* Cards de estatísticas */
+.estatistica-card {
+    border-left: 4px solid #007bff;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+}
+
+.estatistica-card:hover {
+    border-left-width: 6px;
+}
+
+.estatistica-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #343a40;
+    margin: 0;
+}
+
+.estatistica-card p {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Ícones de estatísticas */
+.estatistica-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.estatistica-icon.usuario {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.estatistica-icon.materia {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.estatistica-icon.evento {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.estatistica-icon.atividade {
+    background: linear-gradient(135deg, #6f42c1, #5a32a3);
+}
+
+/* Lista de atividades */
+.atividade-lista {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.atividade-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+.atividade-item:hover {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.atividade-item:last-child {
+    border-bottom: none;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+    font-weight: 500;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
+
+.badge-primary {
+    background-color: #007bff;
+}
+
+/* Tabelas */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Header */
+h1 {
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h5 {
+    color: #495057;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Ícones */
+.bi {
+    vertical-align: -0.125em;
+}
+
+/* Canvas de gráficos */
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Scrollbar personalizada */
+.atividade-lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+.atividade-lista::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.atividade-lista::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.atividade-lista::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Animações */
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.estatistica-card {
+    animation: slideInUp 0.5s ease;
+}
+
+.estatistica-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.estatistica-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.estatistica-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo-dashboard {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .estatistica-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .estatistica-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .row.mb-4 > div {
+        margin-bottom: 1rem;
+    }
+
+    .estatistica-card .d-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .estatistica-icon {
+        margin: 0 auto;
+    }
+
+    .atividade-item {
+        padding: 0.5rem;
+    }
+
+    .atividade-item .d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .small.text-muted {
+        font-size: 0.75rem;
+    }
+}
+
+/* Estados de loading */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Textos */
+.text-muted {
+    color: #6c757d !important;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+/* Print styles */
+@media print {
+    .conteudo-dashboard {
+        margin-left: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .menu-lateral,
+    .btn,
+    .loading {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+        break-inside: avoid;
+    }
+
+    .estatistica-card {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+}

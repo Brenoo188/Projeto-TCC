@@ -77,6 +77,17 @@ if ($_SESSION['tipo_usuario'] !== 'Professor') {
 
             <li class="menu-botoes">
 
+                <a href="../tela-adm/notificacoes.php">
+
+                    <span class="icon"><i class="bi bi-bell"></i></span>
+                    <span class="txt-link">Notificações</span>
+
+                </a>
+
+            </li>
+
+            <li class="menu-botoes">
+
                 <a href="conta.html">
 
                     <span class="icon"><i class="bi bi-person-circle"></i></span>
